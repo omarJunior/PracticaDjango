@@ -1,0 +1,51 @@
+
+{% extends '../home.html' %}
+{% block title %} Clientes {% endblock %}
+
+{% block content %}
+
+ <div class="container mt-4">
+ 	{% if clientes %}
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Correo</th>
+                    <th>Edad</th>
+                    <th>Ciudad</th>
+                    <th>Direccion</th>
+                    <th>Telefono</th>
+                    <th>Helado</th>
+                    <th>Postre</th>
+                    <th>Accion</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for items in clientes %}
+                <tr>
+                    <td>{{ items.id }}</td>
+                    <td>{{ items.nombre }}</td>
+                    <td>{{ items.apellidos }}</td>
+                    <td>{{ items.correo }}</td>
+                    <td>{{ items.edad }}</td>
+                    <td>{{ items.ciudad }}</td>
+                    <td>{{ items.direccion }}</td>
+                    <td>{{ items.telefono }}</td>
+                    <td>{{ items.postre.nombre }}</td>
+                    <td>{{ items.helado.nombre }}</td>
+                    <td>
+                        <a href=""><i class="fas fa-edit"></i></a>
+                        <a href=""><i class="fas fa-eraser"></i></a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+    <p>Inserta clientes porfavor</p>
+    {% endif %}
+
+ </div>
+{% endblock %}

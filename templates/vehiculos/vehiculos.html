@@ -1,0 +1,42 @@
+{% extends '../home.html' %}
+{% block title %} Vehiculos {% endblock %}
+
+{% block content %}
+	<div class="container mt-4">
+		{% if vehiculos %}
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Placa</th>
+						<th>Modelo</th>
+						<th>Marca</th>
+						<th>Color</th>
+						<th>Precio</th>
+						<th>Descripcion</th>
+						<th>Cliente</th>
+						<th>Conductor</th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for vehi in vehiculos %}	
+						<tr>
+							<td>{{vehi.id}}</td>
+							<td>{{vehi.placa}}</td>
+							<td>{{vehi.modelo}}</td>
+							<td>{{vehi.marca}}</td>
+							<td>{{vehi.color}}</td>
+							<td>{{vehi.precio}}</td>
+							<td>{{vehi.descripcion}}</td>
+							<td>{{vehi.cliente.nombre}}</td>
+							<td>{{vehi.conductor.nombre}}</td>
+						</tr>
+					{% endfor %}
+					
+				</tbody>
+			</table>
+		{% else %}
+		<p>Inserta un vehiculo</p>
+		{% endif %}
+	</div>
+{% endblock %}
